@@ -7,7 +7,7 @@ defmodule Discuss.MixProject do
       version: "0.1.0",
       elixir: "~> 1.12",
       elixirc_paths: elixirc_paths(Mix.env()),
-      compilers: [:gettext] ++ Mix.compilers(),
+      compilers: Mix.compilers(),
       start_permanent: Mix.env() == :prod,
       aliases: aliases(),
       deps: deps()
@@ -51,7 +51,9 @@ defmodule Discuss.MixProject do
       {:plug_cowboy, "~> 2.5"},
       {:oauth2, "~> 2.0", override: true},
       {:ueberauth, "~> 0.7"},
-      {:ueberauth_github, "~> 0.8"}
+      {:ueberauth_github, "~> 0.8"},
+      {:phoenix_gen_socket_client, "~> 3.0.0"},
+      {:websocket_client, "~> 1.2"}
     ]
   end
 

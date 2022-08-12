@@ -1,0 +1,30 @@
+version: '3'
+
+services:
+
+  postgres:
+    hostname: postgres
+    image: postgres
+    ports:
+      - '5432:5432'
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: postgres
+      POSTGRES_DATABASE: discuss_dev
+
+  mysql:
+    image: mysql
+    environment:
+      MYSQL_DATABASE: discuss_dev
+      MYSQL_USER: postgres
+      MYSQL_PASSWORD: postgres
+      MYSQL_ROOT_PASSWORD: postgres
+    ports:
+      - '3306:3306'
+    volumes:
+      - my-db:/var/lib/mysql
+
+volumes:
+  database-data:
+    driver: local
+  my-db:

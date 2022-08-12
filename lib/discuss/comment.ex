@@ -1,15 +1,16 @@
-defmodule Discuss.Topic do
+defmodule Discuss.Comment do
   use Ecto.Schema
   import Ecto.Changeset
 
-  schema "topics" do
-    field :title, :string
+  @derive {Jason.Encoder, only: [:content, :user]}
+
+  schema "comments" do
+    field :content, :string
     belongs_to :user, Discuss.User
-    has_many :comments, Discuss.Comment
+    belongs_to :topic, Discuss.Topic
     timestamps()
   end
 
-  @doc false
   def changeset(topic, attrs \\ %{}) do
     topic
     |> cast(attrs, [:title])

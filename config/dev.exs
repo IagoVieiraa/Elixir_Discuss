@@ -2,8 +2,8 @@ import Config
 
 # Configure your database
 config :discuss, Discuss.Repo,
-  username: "terranadams",
-  password: "",
+  username: "postgres",
+  password: "postgres",
   hostname: "localhost",
   database: "discuss_dev",
   stacktrace: true,
